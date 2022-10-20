@@ -12,9 +12,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width:100vw;
+  height:100vh;
   form {
     display: flex;
     flex-direction: column;
+    justify-content:center;
   }
 `;
 
