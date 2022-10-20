@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +11,6 @@ const Container = styled.div`
   text-align: center;
   width: 100vw;
   height: 100vh;
-
 `;
 
 function Profile() {
@@ -38,6 +36,7 @@ function Profile() {
       {accesToken && (
         <Container>
           Logged In<button onClick={handleLogOut}>LogOut</button>
+          <button onClick={()=> navigate('/routes')}>Routes</button>
         </Container>
       )}
       {!accesToken && <Container>Not Logged In</Container>}
