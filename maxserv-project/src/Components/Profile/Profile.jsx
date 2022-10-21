@@ -7,7 +7,7 @@ import { instance as axios } from "../../axios/axios";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justfiy-content: center;
+  justify-content: center;
   align-items: center;
   text-align: center;
   width: 100vw;
