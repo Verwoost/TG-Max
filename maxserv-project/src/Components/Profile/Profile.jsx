@@ -37,6 +37,7 @@ function Profile() {
         <Container>
           Logged In<button onClick={handleLogOut}>LogOut</button>
           <button onClick={()=> navigate('/routes')}>Routes</button>
+          <button onClick={()=> navigate('/stationlist')}>StationList</button>
         </Container>
       )}
       {!accesToken && <Container>Not Logged In</Container>}
