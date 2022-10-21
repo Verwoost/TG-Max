@@ -64,9 +64,9 @@ function Profile() {
                 return (
                   <RouteContainer key={index}>
                     <div>Start: {routeMatch.start_station}</div>
-                    <div>Tussenstop: {routeMatch.stop_station}</div>
+                    <div>Tussenstop: {routeMatch.stop_stations}</div>
                     <div>Eind: {routeMatch.start_station}</div>
-                    <div>User: {routeMatch.user}</div>
+                    <div>User: {routeMatch.email}</div>
                   </RouteContainer>
                 );
               })}
