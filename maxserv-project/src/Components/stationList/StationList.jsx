@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "../../axios/axios";
+import { instance as axios } from "../../axios/axios";
 import { useEffect, useState } from "react";
 import "./style.css";
 
@@ -8,12 +8,13 @@ export default function StationList() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://stoplight.io/mocks/maja/rijsoverzicht/101174922/stations")
-      .then((res) => {
-        console.log(res.data);
-        setItems(res.data);
-      });
+    const fetchData = async () => {
+      const routes = await axios.get("/stations");
+
+      setItems(routes.data);
+      
+    };
+    fetchData();
   }, []);
   return (
     <>

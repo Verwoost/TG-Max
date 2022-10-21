@@ -39,7 +39,7 @@ function RoutesList() {
     }
     const fetchData = async () => {
       const stationsRes = await axios.get("/stations");
-      const routes = await axios.get("/routes");
+      const routes = await axios.get("/route");
       setStations(stationsRes.data);
       setRoutes(routes.data);
     };

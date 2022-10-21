@@ -38,21 +38,21 @@ function Profile() {
       return;
     }
     const fetchData = async () => {
-      const routes = await axios.get("/routes");
-
+      const routes = await axios.get("/route");
       setRoutes(routes.data);
+      console.log(routes);
     };
     fetchData();
   }, []);
-  console.log(routes);
+
   const email = localStorage.getItem("email");
   let routeArr = [];
   routes?.forEach((route) => {
-    if (route.user === email) {
+    if (route.email === email) {
       routeArr.push(route);
+
     }
   });
-
   return (
     <div>
       {accesToken && (
