@@ -1,7 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { instance as axios } from "../../axios/axios";
 
 const Container = styled.div`
   display: flex;
@@ -12,8 +13,20 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+const BodyC = styled.div`
+  display:flex;
+  margin-top:1rem;
+`
+const RouteContainer = styled.div`
+
+  display:flex;
+  flex-direction:column;
+  margin:1rem;
+
+`
 
 function Profile() {
+  const [routes, setRoutes] = useState();
   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.signin.signedin);
 
@@ -22,20 +35,42 @@ function Profile() {
   useEffect(() => {
     if (!accesToken) {
       navigate("/");
+      return;
     }
-  }, []);
+    const fetchData = async () => {
+      const routes = await axios.get("/routes");
 
-  const handleLogOut = () => {
-    localStorage.removeItem("acces");
-    alert("Logged Out!");
-    navigate("/");
-  };
+      setRoutes(routes.data);
+    };
+    fetchData();
+  }, []);
+  console.log(routes);
+  const email = localStorage.getItem("email");
+  let routeArr = [];
+  routes?.forEach((route) => {
+    if (route.user === email) {
+      routeArr.push(route);
+    }
+  });
 
   return (
     <div>
       {accesToken && (
         <Container>
-            Profile Page
+          <h1>Profile Page {email}</h1>
+          <BodyC>
+          {routeArr &&
+              routeArr.map((routeMatch, index) => {
+                return (
+                  <RouteContainer key={index}>
+                    <div>Start: {routeMatch.start_station}</div>
+                    <div>Tussenstop: {routeMatch.stop_station}</div>
+                    <div>Eind: {routeMatch.start_station}</div>
+                    <div>User: {routeMatch.user}</div>
+                  </RouteContainer>
+                );
+              })}
+        </BodyC>
         </Container>
       )}
       {!accesToken && <Container>Not Logged In</Container>}

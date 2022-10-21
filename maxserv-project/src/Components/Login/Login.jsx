@@ -41,6 +41,7 @@ function Login() {
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, pass);
       localStorage.setItem("acces", userCred.user.accessToken);
+      localStorage.setItem('email', userCred.user.email)
       dispatch(
         setSignedIn({
           signedin: true,
