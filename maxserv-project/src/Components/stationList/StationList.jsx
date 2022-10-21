@@ -51,29 +51,77 @@ export default function StationList() {
     },
     {
       name: "Amsterdam Centraal",
-      stationCode: "Itr",
+      stationCode: "Abc",
       landCode: "NL",
       facilities: "true",
     },
     {
       name: "Amsterdam Centraal",
-      stationCode: "bra",
+      stationCode: "Bcd",
+      landCode: "NL",
+      facilities: "true",
+    },
+    {
+      name: "Amsterdam Centraal",
+      stationCode: "Cde",
+      landCode: "NL",
+      facilities: "true",
+    },
+    {
+      name: "Amsterdam Centraal",
+      stationCode: "Def",
+      landCode: "NL",
+      facilities: "true",
+    },
+    {
+      name: "Amsterdam Centraal",
+      stationCode: "Efg",
+      landCode: "NL",
+      facilities: "true",
+    },
+    {
+      name: "Amsterdam Centraal",
+      stationCode: "Fgh",
       landCode: "NL",
       facilities: "true",
     },
   ];
 
+  function getStation(stationName) {
+    const result = items.filter((item) => item.name === stationName);
+    return result;
+  }
+
   return (
     <>
-      {/* <header>Stations</header> */}
+      <div className="container">
+        <header>Stations</header>
+        <div className="container_ltr">
+          <ul>
+            {items.map((item) => (
+              <li className="station_li" key={item.stationCode}>
+                <div className="fract">{item.name}</div>
+                <div className="fract"> {item.stationCode}</div>
+                <div className="fract">{item.landCode}</div>
+                <div className="fract">{item.facilities}</div>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {items.map((item) => (
+              <li className="station_li" key={item.stationCode}>
+                <div className="fract">{item.name}</div>
+                <div className="fract"> {item.stationCode}</div>
+                <div className="fract">{item.landCode}</div>
+                <div className="fract">{item.facilities}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <ul>
-        {items.map((item) => (
-          <li className="station_li" key={item.stationCode}>
-            <div className="fract">{item.name}</div>
-            <div className="fract"> {item.stationCode}</div>
-            <div className="fract">{item.landCode}</div>
-            <div className="fract">{item.facilities}</div>
-          </li>
+        {getStation("Amsterdam Centraal").map((item) => (
+          <li>{item.stationCode}</li>
         ))}
       </ul>
     </>
