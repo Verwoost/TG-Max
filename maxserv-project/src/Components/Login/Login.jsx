@@ -12,12 +12,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width:100vw;
-  height:100vh;
+  width: 100vw;
+  height: 100vh;
   form {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
   }
 `;
 
@@ -25,22 +25,22 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const accesToken = localStorage.getItem("acces");
-  useEffect(()=>{
+  useEffect(() => {
     if (accesToken) {
-     navigate("/profile");
-   } 
- },[])
+      navigate("/profile");
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-
 
     const email = event.currentTarget.email.value;
     const pass = event.currentTarget.password.value;
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, pass);
       localStorage.setItem("acces", userCred.user.accessToken);
+      localStorage.setItem("email", userCred.user.email);
+      localStorage.setItem("name", "John Doe");
       dispatch(
         setSignedIn({
           signedin: true,

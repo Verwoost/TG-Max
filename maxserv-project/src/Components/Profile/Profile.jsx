@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justfiy-content: center;
+  justify-content: center;
   align-items: center;
   text-align: center;
   width: 100vw;
@@ -27,6 +27,8 @@ function Profile() {
 
   const handleLogOut = () => {
     localStorage.removeItem("acces");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
     alert("Logged Out!");
     navigate("/");
   };
@@ -35,7 +37,8 @@ function Profile() {
     <div>
       {accesToken && (
         <Container>
-            Profile Page
+          Profile Page
+          <header> Welkom Terug</header>
         </Container>
       )}
       {!accesToken && <Container>Not Logged In</Container>}
