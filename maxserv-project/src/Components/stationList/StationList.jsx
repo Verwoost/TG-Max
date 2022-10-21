@@ -24,6 +24,7 @@ export default function StationList() {
             <div className="fract">{item.station_name}</div>
             <div className="fract"> {item.station_code}</div>
             <div className="fract">{item.station_country}</div>
+            <div className="fract">{item.station_extras}</div>
           </li>
         ))}
       </ul>
