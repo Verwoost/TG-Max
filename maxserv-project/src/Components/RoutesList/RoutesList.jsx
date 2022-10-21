@@ -88,9 +88,9 @@ function RoutesList() {
                 return (
                   <RouteSingle key={index}>
                     <div>Start: {route.start_station}</div>
-                    <div>Tussenstop: {route.stop_station}</div>
-                    <div>Eind: {route.start_station}</div>
-                    <div>User: {route.user}</div>
+                    <div>Tussenstop: {route.stop_stations}</div>
+                    <div>Eind: {route.end_station}</div>
+                    <div>User: {route.email}</div>
                   </RouteSingle>
                 );
               })}
