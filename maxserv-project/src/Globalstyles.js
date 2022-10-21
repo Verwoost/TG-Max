@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    background: radial-gradient(circle, rgba(161,158,241,1) 0%, rgba(76,86,212,1) 100%);
   }
 
   button{
