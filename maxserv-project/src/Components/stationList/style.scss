@@ -9,8 +9,9 @@
     align-items: center;
     :nth-child(1){
         background-color: #ffc917;
+        width: 60px;
     }
-
+   
 }
 
 ul{
@@ -19,4 +20,5 @@ ul{
 
 .fract{
     padding: 0.5rem 1rem;
+    flex: 1;
 }
