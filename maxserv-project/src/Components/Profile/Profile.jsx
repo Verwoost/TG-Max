@@ -10,11 +10,11 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100vw;
-  height: 100vh;
+
 `;
 const BodyC = styled.div`
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top:1rem;
 `
 const RouteContainer = styled.div`
@@ -22,6 +22,7 @@ const RouteContainer = styled.div`
   display:flex;
   flex-direction:column;
   margin:1rem;
+  text-align:left;
 
 `
 
