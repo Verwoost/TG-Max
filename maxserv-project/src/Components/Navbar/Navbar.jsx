@@ -30,7 +30,8 @@ function Navbar() {
         <NavbarContainer>
           <button onClick={() => navigate("/stationlist")}>StationList</button>
           <button onClick={() => navigate("/routes")}>Routes</button>
-          <button onClick={handleLogOut}>LogOut</button>
+          <button onClick={() =>navigate("/profile")}>Profile</button>
+          <button onClick={handleLogOut}>Log Out</button>
         </NavbarContainer>
       )}
       {!accesToken && <NavbarContainer>Not Logged In. Please Login</NavbarContainer>}
