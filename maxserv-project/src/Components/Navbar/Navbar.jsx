@@ -3,28 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const NavbarContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justfiy-content: center;
+  flex-direction: row;
   align-items: center;
   text-align: center;
-  width: 100vw;
-  height: 100vh;
+  height: 5rem;
+  justify-content:space-around;
+  width:100vw;
+  top:0;
 `;
-
-function Profile() {
+function Navbar() {
   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.signin.signedin);
 
   const accesToken = localStorage.getItem("acces");
-
-  useEffect(() => {
-    if (!accesToken) {
-      navigate("/");
-    }
-  }, []);
-
   const handleLogOut = () => {
     localStorage.removeItem("acces");
     alert("Logged Out!");
@@ -32,14 +25,16 @@ function Profile() {
   };
 
   return (
-    <div>
+    <>
       {accesToken && (
-        <Container>
-            Profile Page
-        </Container>
+        <NavbarContainer>
+          <button onClick={() => navigate("/stationlist")}>StationList</button>
+          <button onClick={() => navigate("/routes")}>Routes</button>
+          <button onClick={handleLogOut}>LogOut</button>
+        </NavbarContainer>
       )}
-      {!accesToken && <Container>Not Logged In</Container>}
-    </div>
+      {!accesToken && <NavbarContainer>Not Logged In. Please Login</NavbarContainer>}
+    </>
   );
 }
-export default Profile;
+export default Navbar;

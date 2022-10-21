@@ -54,7 +54,6 @@ function Login() {
 
   return (
     <Container>
-      Login:
       <form onSubmit={handleSubmit}>
         <label>E-mail :</label>
         <input type="text" name="email" id="email" />
